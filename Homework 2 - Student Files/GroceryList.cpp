@@ -158,7 +158,7 @@ void GroceryList::insert( const GroceryItem & groceryItem, std::size_t offsetFro
     /// Remember, you already have a function that tells you if the to-be-inserted grocery item is already in the list, so use it.
     /// Don't implement it again.
 
-    if(find(groceryItem) == _gList_array_size) return ;
+    if(find(groceryItem) != _gList_array_size) return ;
     
 
   /////////////////////// END-TO-DO (3) ////////////////////////////
@@ -186,6 +186,8 @@ void GroceryList::insert( const GroceryItem & groceryItem, std::size_t offsetFro
       /// Open a hole to insert new grocery item by shifting to the right everything at and after the insertion point.
       /// For example:  a[8] = a[7];  a[7] = a[6];  a[6] = a[5];  and so on.
       /// std::move_backward will be helpful, or write your own loop.
+
+    if(_gList_array_size + 1 == _gList_array.size() ) throw CapacityExceeded_Ex("Cannot fit Another item into fixed size array");
 
     for(size_t i = _gList_array_size; i > offsetFromTop; --i){
       _gList_array[i] = std::move(_gList_array[i - 1]);
@@ -279,7 +281,7 @@ void GroceryList::remove( std::size_t offsetFromTop )
       ///
       /// std::move() will be helpful, or write your own loop.  Also remember that you must keep track of the number of valid grocery items
       /// in your array, so don't forget to adjust _gList_array_size.
-    for(size_t i = offsetFromTop; i < _gList_array_size; ++i){
+    for(size_t i = offsetFromTop; i < _gList_array_size - 1; ++i){
       _gList_array.at(i) = _gList_array.at(i + 1);
     }
     --_gList_array_size;
@@ -344,7 +346,7 @@ void GroceryList::moveToTop( const GroceryItem & groceryItem )
   ///////////////////////// TO-DO (12) //////////////////////////////
     /// If the grocery item exists, then remove and reinsert it.  Otherwise, do nothing.
     /// Remember, you already have functions to do all this.
-  if(find(groceryItem)){
+  if(find(groceryItem) != _gList_array_size){
     remove(groceryItem);
     insert(groceryItem);
   }

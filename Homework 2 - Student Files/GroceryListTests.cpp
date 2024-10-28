@@ -60,6 +60,7 @@ namespace    // anonymous
 
       affirm.is_equal( "Initializer list constructor:  Size",    4U,       list.size() );
       affirm.is_equal( "Initializer list constructor:  content", expected, list        );
+
     }
 
     {
