@@ -1,7 +1,5 @@
 #pragma once
 
-// need to include something from the standard library so _LIBCPP_VERSION gets defined, so don't move
-// these #includes under that conditional compile
 #include <compare>
 #include <chrono>           // hh_mm_ss<>
 #include <cmath>            // abs()
@@ -18,6 +16,7 @@
 //    __GNUC__        is defined if using GCC, but also sometimes when using Clang
 //          (__GNUC__ * 1'000'000 + __GNUC_MINOR__ * 1'000 + __GNUC_PATCHLEVEL__) give gcc version
 
+//Class Obtained from Professor David to adjust to the new C++20
 
 
 #if defined( _LIBCPP_VERSION )
