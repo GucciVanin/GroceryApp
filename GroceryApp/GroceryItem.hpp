@@ -36,7 +36,6 @@ class GroceryItem
     std::string         upcCode    ()       &&;                               // Overloads that return an r-value object's state by value (unsafe to return an r-value's state by reference)
     std::string         brandName  ()       &&;                               // The "&&" at the end says these functions will be called only for r-value objects
     std::string         productName()       &&;                               // Search "lvalue vs rvalue", or see https://www.learncpp.com/cpp-tutorial/value-categories-lvalues-and-rvalues/,
-                                                                              // https://www.bing.com/videos/search?q=chono+c%2b%2b+lvalue+vs+rvalue&docid=608038928535204227&mid=6E0B93922619A11969BB6E0B93922619A11969BB&view=detail&FORM=VIRE
 
     // Modifiers                                                              // Updates object's state and returns a reference to self (enables chaining)
     GroceryItem & upcCode    ( std::string newUpcCode     ) &;                // String parameters intentionally passed by value
@@ -51,7 +50,7 @@ class GroceryItem
 
   private:
     std::string _upcCode;                                                     // a 12 or 14-digit international Universal Product Code uniquely identifying this item (Ex: 051600080015, 05017402006207)
-    std::string _brandName;                                                   // the product manufacture’s brand name (Ex: Heinz, Boston Market)
+    std::string _brandName;                                                   // the product manufactureâ€™s brand name (Ex: Heinz, Boston Market)
     std::string _productName;                                                 // the name of the product (Ex: Heinz Tomato Ketchup - 2 Ct, Boston Market Spaghetti With Meatballs)
     double      _price = 0.0;                                                 // the cost of the item in US Dollars (Ex:  2.29, 1.19)
 };
