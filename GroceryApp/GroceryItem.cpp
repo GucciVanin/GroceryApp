@@ -53,44 +53,37 @@ namespace    // unnamed, anonymous namespace
 
 // Default and Conversion Constructor
 GroceryItem::GroceryItem( std::string productName, std::string brandName, std::string upcCode, double price )
-///////////////////////// TO-DO (2) //////////////////////////////
   /// Copying the parameters into the object's attributes (member variables) "works" but is not correct.  Be sure to move the parameters into the object's attributes
 :_productName(std::move(productName)), 
 _brandName(std::move(brandName)),
 _upcCode(std::move(upcCode)),
 _price(price){}
-/////////////////////// END-TO-DO (2) ////////////////////////////
 
 
 
 
 // Copy constructor
 GroceryItem::GroceryItem( GroceryItem const & other )
-///////////////////////// TO-DO (3) //////////////////////////////
 :_productName(other._productName),
 _brandName(other._brandName),
 _upcCode(other._upcCode),
 _price(other._price){}
-/////////////////////// END-TO-DO (3) ////////////////////////////
 
 
 
 
 // Move constructor
 GroceryItem::GroceryItem( GroceryItem && other ) noexcept
-///////////////////////// TO-DO (4) //////////////////////////////
 :_productName(std::move(other._productName)),
 _brandName(std::move(other._brandName)),
 _upcCode(std::move(other._upcCode)),
 _price(std::move(other._price)){}
-/////////////////////// END-TO-DO (4) ////////////////////////////
 
 
 
 
 // Copy Assignment Operator
 GroceryItem & GroceryItem::operator=( GroceryItem const & rhs ) &
-///////////////////////// TO-DO (5) //////////////////////////////
 {
   this->_productName = rhs._productName;
   this->_brandName = rhs._brandName;
@@ -99,14 +92,12 @@ GroceryItem & GroceryItem::operator=( GroceryItem const & rhs ) &
 
   return *this;
 }
-/////////////////////// END-TO-DO (5) ////////////////////////////
 
 
 
 
 // Move Assignment Operator
 GroceryItem & GroceryItem::operator=( GroceryItem && rhs ) & noexcept
-///////////////////////// TO-DO (6) //////////////////////////////
 {
   this->_productName = std::move(rhs._productName);
   this->_brandName = std::move(rhs._brandName);
@@ -115,15 +106,12 @@ GroceryItem & GroceryItem::operator=( GroceryItem && rhs ) & noexcept
 
   return *this;
 }
-/////////////////////// END-TO-DO (6) ////////////////////////////
 
 
 
 // Destructor
 GroceryItem::~GroceryItem() noexcept
-///////////////////////// TO-DO (7) //////////////////////////////
 {}
-/////////////////////// END-TO-DO (7) ////////////////////////////
 
 
 
@@ -139,9 +127,7 @@ GroceryItem::~GroceryItem() noexcept
 // upcCode() const
 std::string const & GroceryItem::upcCode() const &
 {
-  ///////////////////////// TO-DO (8) //////////////////////////////
 return this->_upcCode;
-  /////////////////////// END-TO-DO (8) ////////////////////////////
 }
 
 
@@ -150,9 +136,7 @@ return this->_upcCode;
 // brandName() const
 std::string const & GroceryItem::brandName() const &
 {
-  ///////////////////////// TO-DO (9) //////////////////////////////
 return this->_brandName;
-  /////////////////////// END-TO-DO (9) ////////////////////////////
 }
 
 
@@ -161,9 +145,7 @@ return this->_brandName;
 // productName() const
 std::string const & GroceryItem::productName() const &
 {
-  ///////////////////////// TO-DO (10) //////////////////////////////
 return this->_productName;
-  /////////////////////// END-TO-DO (10) ////////////////////////////
 }
 
 
@@ -171,9 +153,7 @@ return this->_productName;
 // price() const
 double GroceryItem::price() const &
 {
-  ///////////////////////// TO-DO (11) //////////////////////////////
 return this->_price;
-  /////////////////////// END-TO-DO (11) ////////////////////////////
 }
 
 
@@ -182,9 +162,7 @@ return this->_price;
 // upcCode()
 std::string GroceryItem::upcCode() &&
 {
-  ///////////////////////// TO-DO (12) //////////////////////////////
 return std::move(this->_upcCode);
-  /////////////////////// END-TO-DO (12) ////////////////////////////
 }
 
 
@@ -193,9 +171,7 @@ return std::move(this->_upcCode);
 // brandName()
 std::string GroceryItem::brandName() &&
 {
-  ///////////////////////// TO-DO (13) //////////////////////////////
 return std::move(this->_brandName);
-  /////////////////////// END-TO-DO (13) ////////////////////////////
 }
 
 
@@ -204,9 +180,7 @@ return std::move(this->_brandName);
 // productName()
 std::string GroceryItem::productName() &&
 {
-  ///////////////////////// TO-DO (14) //////////////////////////////
 return std::move(this->_productName);
-  /////////////////////// END-TO-DO (14) ////////////////////////////
 }
 
 
@@ -223,11 +197,9 @@ return std::move(this->_productName);
 // upcCode()
 GroceryItem & GroceryItem::upcCode( std::string newUpcCode ) &
 {
-  ///////////////////////// TO-DO (15) //////////////////////////////
     /// Copy assignment "works" but is not correct.  Be sure to move newUpcCode into _upcCode
   this->_upcCode = std::move(newUpcCode);
   return *this;
-  /////////////////////// END-TO-DO (15) ////////////////////////////
 }
 
 
@@ -236,10 +208,8 @@ GroceryItem & GroceryItem::upcCode( std::string newUpcCode ) &
 // brandName()
 GroceryItem & GroceryItem::brandName( std::string newBrandName ) &
 {
-  ///////////////////////// TO-DO (16) //////////////////////////////
 this->_brandName = std::move(newBrandName);
 return *this;
-  /////////////////////// END-TO-DO (16) ////////////////////////////
 }
 
 
@@ -248,10 +218,8 @@ return *this;
 // productName()
 GroceryItem & GroceryItem::productName( std::string newProductName ) &
 {
-  ///////////////////////// TO-DO (17) //////////////////////////////
 this->_productName = std::move(newProductName);
 return *this;
-  /////////////////////// END-TO-DO (17) ////////////////////////////
 }
 
 
@@ -260,10 +228,8 @@ return *this;
 // price()
 GroceryItem & GroceryItem::price( double newPrice ) &
 {
-  ///////////////////////// TO-DO (18) //////////////////////////////
 this->_price = std::move(newPrice);
 return *this;
-  /////////////////////// END-TO-DO (18) ////////////////////////////
 }
 
 
@@ -280,33 +246,10 @@ return *this;
 // operator<=>
 std::weak_ordering GroceryItem::operator<=>( const GroceryItem & rhs ) const noexcept
 {
-  // Design decision:  A very simple and convenient defaulted 3-way comparison operator
-  //                         auto operator<=>( const GroceryItem & ) const = default;
-  //                   in the class definition (header file) would get very close to what is needed and would allow both the <=> and
-  //                   the == operators defined here to be skipped.  The physical ordering of the attributes in the class definition
-  //                   would have to be changed (easy enough in this case) but the default directly compares floating point types
-  //                   (price) for equality, and that should be avoided, in general. For example, if x and y are of type double,
-  //                   then  x < y  is okay but  x == y  is not.  So these (operator<=> and operator==) explicit definitions are
-  //                   provided.
-  //
-  //                   Also, many ordering (sorting) algorithms, like those used in std::map and std::set, require at least a weak
-  //                   ordering of elements. operator<=> provides only a partial ordering when comparing floating point numbers.
-  //
-  // Weak order:       Objects that compare equal but are not substitutable (identical).  For example, since _price can be within
-  //                   EPSILON, GroceryItem("ProductName", "BrandName", "UPC", 9.99999) and GroceryItem("ProductName", "BrandName",
-  //                   "UPC", 10.00001) are equal but they are not identical.  If you ignore case when comparing strings, as another
-  //                   example, GroceryItem("ProductName") and GroceryItem("productName") are equal but they are not identical.
-  //
-  // See std::weak_ordering    at https://en.cppreference.com/w/cpp/utility/compare/weak_ordering and
-  //     std::partial_ordering at https://en.cppreference.com/w/cpp/utility/compare/partial_ordering
-  //     The Three-Way Comparison Operator at  http://modernescpp.com/index.php/c-20-the-three-way-comparison-operator
-  //     Spaceship (Three way comparison) Operator Demystified https://youtu.be/S9ShnAFmiWM
-  //
-  //
+  
   // Grocery items are equal if all attributes are equal (or within Epsilon for floating point numbers, like price). Grocery items are ordered
   // (sorted) by UPC code, product name, brand name, then price.
 
-  ///////////////////////// TO-DO (19) //////////////////////////////
   if(this->_upcCode <=> rhs._upcCode != 0) return this->_upcCode <=> rhs._upcCode;
   if(this->_productName <=> rhs._productName != 0) return this->_productName <=> rhs._productName;
   if(this->_brandName <=> rhs._brandName != 0) return this->_brandName <=> rhs._brandName;
@@ -315,7 +258,6 @@ std::weak_ordering GroceryItem::operator<=>( const GroceryItem & rhs ) const noe
   if(floating_point_is_equal(this->_price, rhs._price)) return std::weak_ordering::equivalent;
   if(this->_price < rhs._price) return std::weak_ordering::less;
   else return std::weak_ordering::greater;
-  /////////////////////// END-TO-DO (19) ////////////////////////////
 }
 
 
@@ -327,9 +269,7 @@ bool GroceryItem::operator==( const GroceryItem & rhs ) const noexcept
   // All attributes must be equal for the two grocery items to be equal to the other.  This can be done in any order, so put the
   // quickest and then the most likely to be different first.
 
-  ///////////////////////// TO-DO (20) //////////////////////////////
   return this->_productName == rhs._productName && this->_brandName == rhs._brandName && this->_upcCode == rhs._upcCode && floating_point_is_equal(this->_price, rhs._price);
-  /////////////////////// END-TO-DO (20) ////////////////////////////
 }
 
 
@@ -346,23 +286,12 @@ bool GroceryItem::operator==( const GroceryItem & rhs ) const noexcept
 // operator>>
 std::istream & operator>>( std::istream & stream, GroceryItem & groceryItem )
 {
-  ///////////////////////// TO-DO (21) //////////////////////////////
-    /// A lot can go wrong when reading from streams - no permission, wrong types, end of file, etc. Minimal exception guarantee says
-    /// there should be no side affects if an error or exception occurs, so let's do our work in a local object and move it into place
-    /// at the end if all goes well.
-    ///
-    /// This function should be symmetrical with operator<< below.  Read what your write, and write what you read
-    ///
-    ///
+  
     /// Assume fields are separated by commas & optional spaces, and string attributes are enclosed with double quotes.  For example:
     ///    UPC Code         | Brand Name | Product Name                                                  | Price
     ///    -----------------+------------+---------------------------------------------------------------+-------
     ///    "00034000020706",  "York",      "York Peppermint Patties Dark Chocolate Covered Snack Size"  ,  12.64
-    ///
-    ///
-    /// Hint:  Use std::quoted to read and write quoted strings.  See
-    ///        1) https://en.cppreference.com/w/cpp/io/manip/quoted
-    ///        2) https://www.youtube.com/watch?v=Mu-GUZuU31A
+    
 
   GroceryItem workingItem;
   char delimiter = '\0';
@@ -378,7 +307,6 @@ std::istream & operator>>( std::istream & stream, GroceryItem & groceryItem )
   return stream;
 
 
-  /////////////////////// END-TO-DO (21) ////////////////////////////
 }
 
 
@@ -387,12 +315,6 @@ std::istream & operator>>( std::istream & stream, GroceryItem & groceryItem )
 // operator<<
 std::ostream & operator<<( std::ostream & stream, const GroceryItem & groceryItem )
 {
-  ///////////////////////// TO-DO (22) //////////////////////////////
-    /// This function should be symmetrical with operator>> above.  Read what your write, and write what you read
-    ///
-    /// Hint:  Brand and product names may have quotes, which need to escaped when printing.  Use std::quoted to read and write quoted strings.  See
-    ///        1) https://en.cppreference.com/w/cpp/io/manip/quoted
-    ///        2) https://www.youtube.com/watch?v=Mu-GUZuU31A
 
   char delimiter = ',';
 
@@ -401,5 +323,4 @@ std::ostream & operator<<( std::ostream & stream, const GroceryItem & groceryIte
   stream << delimiter << std::quoted(groceryItem._brandName) << delimiter << std::quoted(groceryItem._productName) << delimiter << groceryItem._price;
 
   return stream;
-  /////////////////////// END-TO-DO (22) ////////////////////////////
 }
