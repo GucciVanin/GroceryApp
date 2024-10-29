@@ -22,22 +22,8 @@ namespace    // unnamed, anonymous namespace
   template< typename T,  typename U >   requires std::is_floating_point_v<std::common_type_t<T, U> >
   constexpr bool floating_point_is_equal( T const lhs,  U const rhs,  double const EPSILON = 1e-4 ) noexcept
   {
-    ///////////////////////// TO-DO (1) //////////////////////////////
-      ///  Write the lines of code that compare two floating point numbers.  Return true when the left hand side (lhs) and the right
-      ///  hand side (rhs) are within Epsilon, and false otherwise.
-      ///
-      ///  See: "Floating point equality" in https://www.learncpp.com/cpp-tutorial/relational-operators-and-floating-point-comparisons/
-      ///
-      ///  Hint:  Avoid writing code that looks like this:
-      ///           if( some expression that is true ) return the constant "true"
-      ///           else                               return the constant "false"
-      ///         for example, avoid:
-      ///           if (a < b) return true;
-      ///           else       return false;
-      ///         do this instead:
-      ///           return a < b;
+    
     return std::abs(lhs - rhs) < EPSILON;
-    /////////////////////// END-TO-DO (1) ////////////////////////////
   }
 }    // unnamed, anonymous namespace
 
