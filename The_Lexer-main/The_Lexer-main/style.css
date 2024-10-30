@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+* /*applied for all element in web page*/
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+body
+{ /* applied on everything in the webpage*/
+    background: lightblue;
+    display: flex;
+    justify-content: center; /*horizontal center for elements inside the entire webpage*/
+    /*if the value is right, the elements will move to the right*/ 
+    align-items: center; /*vertical center*/
+    /*if value is left or right the the height will be increased by height */
+    min-height: 100vh; /*the height of the elements in the webpage*/
+    /*starts from 0 from the top to 100 below means in center*/
+}
+
+.container /*container here is the centered box*/
+{
+    position: relative; /*child elements will be only inside the container not the entire body of webpage*/
+    width: 100%; /*width of the box increase*/
+    max-width: 1000px; /*max width of the box starting from width*/
+    min-height: 1000px; /*height of the box parent*/
+    margin: 50px; /*how much its aways from the ending of the page*/
+    background: #fff; /*color of the bordered box*/
+    display: grid; /*allows 2-D layout or to two objects design */
+    grid-template-columns: 1fr 2fr; /*two children object column inside the container which are below left and right*/
+    box-shadow: 0 35px 35px rgba(0, 0, 0, 1) /*0 is the shadow is centered, middle 35px is the shadow going toward bottom*/
+    /*changing colors redBlueGreenAlpha(0-255, 0-255,0-255,0-1)*/
+    /*last 35 is for the width of the shadow or make it darker or brighter with higher pixels */    
+    
+}
+
+.container .left_side /*child element in the parent container*/
+{
+    position: relative; /*contained inside the parent box*/
+    background: #c10303; /*dark blue color top half*/
+    padding: 40px; /*how much is filled from the top its by height*/
+}
+
+.profile_text
+{
+    position: relative;
+    display: flex;
+    flex-direction: column; /*vertical alignment*/
+    align-items: center;
+    padding-bottom: 20px; /*how much space under the text and image*/
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /*straight line under the text*/
+}
+
+.profile_text .image_box
+{
+    position: relative; /*allow the image to position independantly*/
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden; /*the dimension that exceeds 200px wide and 200px height will be clipped and not visible*/
+
+}
+
+.profile_text .image_box img
+{
+    position: absolute;
+    top: 0; /*center position*/ 
+    left: 0; /*center position*/
+    width: 100%; /*image width*/
+    height: 100%; /*image height*/
+    object-fit: cover; /*image fit with its frame*/
+}
+
+.profile_text h2
+{
+    color: white;
+    font-size: 1.5em;
+    margin-top: 20px; /*how much the line away from the image*/
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600; /*width of the font*/
+    line-height: 1.4em; /*spacing between line*/
+}
+
+.profile_text h2 span
+{
+    font-size: 0.8em;
+    font-weight: 300;
+}
+
+
+
+
+
+.container .right_side
+{
+   position: relative; /*conained inside the box and relative to the top part*/
+   background: white; /*white color bottom half*/
+   padding: 40px; /*how much is filled from the bottom its by height*/
+
+}
+
+/*we use the class styling to change all elements in the tag not only one item*/
+.right_side ul 
+{
+    padding-left: 20px;
+}
+
+
+
